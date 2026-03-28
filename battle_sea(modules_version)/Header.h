@@ -12,6 +12,8 @@ void Enter();
 
 int InputInt(int min, int max);
 
+int InputLetter(int min, int max);
+
 void initField(char field[][SIZE_]);
 
 void printField(char field[][SIZE_]);
