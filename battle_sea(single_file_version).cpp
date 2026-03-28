@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include<iostream>
 #include<string>
 #include<windows.h>
 using namespace std;
@@ -100,6 +100,46 @@ int InputInt(int min, int max)
 
 		if (value < min || value > max) {
 			cout << "\t\tВведите число от " << min << " до " << max << ": ";
+			continue;
+		}
+		return value;
+	}
+}
+
+int InputLetter(int min, int max)
+{
+	while (true) {
+		if (cin.peek() == '\n') {
+			cin.ignore();
+		}
+
+		string s;
+		const string digits = "abcdefghij";
+		getline(cin, s);
+
+		if (s.empty()) {
+			cout << "\n\t\tПустой ввод, повторите: ";
+			continue;
+		}
+
+		if (s.length() > 1) {
+			cout << "\t\tВведите 1 символ: ";
+			continue;
+		}
+
+		char target = tolower(s[0]);
+		size_t number = digits.find(target);
+
+		if (number == string::npos) { // проверяем на отсутствие символов
+			cout << "\t\tНедопустимый символ!\n";
+			cout << "\t\tВведите букву a-j: ";
+			continue;
+		}
+
+		int value = (int)number;
+
+		if (value < min || value > max) {
+			cout << "\t\tВведите букву a-j: ";
 			continue;
 		}
 		return value;
@@ -344,11 +384,11 @@ void playGame()
 		printField(FieldPlayer_1);
 		cout << endl;
 		cout << "\tВведите координаты откуда будем устанавливать корабль:\n";
-		cout << "\t\tВведите X: ";
-		x_1 = InputInt(1, 10);
-		cout << "\t\tВведите Y: ";
+		cout << "\t\tВведите горизонталь: ";
+		x_1 = InputLetter(0, 9);
+		cout << "\t\tВведите вертикаль: ";
 		y_1 = InputInt(1, 10);
-		x_1--; y_1--;
+		y_1--;
 		cout << "\t\tВведите направление корабля:\n";
 		cout << "\t\t1 - Вверх; 2 - Вниз; 3 - Влево; 4 - Вправо\n";
 		cout << "\t\tВаш выбор: ";
@@ -396,11 +436,11 @@ void playGame()
 		printField(FieldPlayer_2);
 		cout << endl;
 		cout << "\tВведите координаты откуда будем устанавливать корабль:\n";
-		cout << "\t\tВведите X: ";
-		x_1 = InputInt(1, 10);
-		cout << "\t\tВведите Y: ";
+		cout << "\t\tВведите горизонталь: ";
+		x_1 = InputLetter(0, 9);
+		cout << "\t\tВведите вертикаль: ";
 		y_1 = InputInt(1, 10);
-		x_1--; y_1--;
+		y_1--;
 		cout << "\t\tВведите направление корабля:\n";
 		cout << "\t\t1 - Вверх; 2 - Вниз; 3 - Влево; 4 - Вправо\n";
 		cout << "\t\tВаш выбор: ";
@@ -462,12 +502,12 @@ void playGame()
 
 		while (true) {
 			cout << "\t\tВведите координаты для выстрела:\n";
-			cout << "\t\tВведите X: ";
-			x = InputInt(1, 10);
-			cout << "\t\tВведите Y: ";
+			cout << "\t\tВведите горизонталь: ";
+			x = InputLetter(0, 9);
+			cout << "\t\tВведите вертикаль: ";
 			y = InputInt(1, 10);
 
-			x = x - 1;
+			//x = x - 1;
 			y = y - 1;
 
 			if (player_status == 1) {
