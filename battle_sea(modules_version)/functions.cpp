@@ -104,6 +104,46 @@ int InputInt(int min, int max)
 	}
 }
 
+int InputLetter(int min, int max)
+{
+	while (true) {
+		if (cin.peek() == '\n') {
+			cin.ignore();
+		}
+
+		string s;
+		const string digits = "abcdefghij";
+		getline(cin, s);
+
+		if (s.empty()) {
+			cout << "\n\t\tПустой ввод, повторите: ";
+			continue;
+		}
+
+		if (s.length() > 1) {
+			cout << "\t\tВведите 1 символ: ";
+			continue;
+		}
+
+		char target = tolower(s[0]);
+		size_t number = digits.find(target);
+
+		if (number == string::npos) { // проверяем на отсутствие символов
+			cout << "\t\tНедопустимый символ!\n";
+			cout << "\t\tВведите букву a-j: ";
+			continue;
+		}
+
+		int value = (int)number;
+
+		if (value < min || value > max) {
+			cout << "\t\tВведите букву a-j: ";
+			continue;
+		}
+		return value;
+	}
+}
+
 void initField(char field[][SIZE_])
 {
 	for (int i = 0; i < SIZE_; i++) {
