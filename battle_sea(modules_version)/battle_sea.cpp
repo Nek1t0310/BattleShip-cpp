@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include<iostream>
 #include<string>
 #include<windows.h>
 #include"Header.h"
@@ -40,11 +40,11 @@ void playGame()
 		printField(FieldPlayer_1);
 		cout << endl;
 		cout << "\tВведите координаты откуда будем устанавливать корабль:\n";
-		cout << "\t\tВведите X: ";
-		x_1 = InputInt(1, 10);
-		cout << "\t\tВведите Y: ";
+		cout << "\t\tВведите горизонталь: ";
+		x_1 = InputLetter(0, 9);
+		cout << "\t\tВведите вертикаль: ";
 		y_1 = InputInt(1, 10);
-		x_1--; y_1--;
+		y_1--;
 		cout << "\t\tВведите направление корабля:\n";
 		cout << "\t\t1 - Вверх; 2 - Вниз; 3 - Влево; 4 - Вправо\n";
 		cout << "\t\tВаш выбор: ";
@@ -92,11 +92,11 @@ void playGame()
 		printField(FieldPlayer_2);
 		cout << endl;
 		cout << "\tВведите координаты откуда будем устанавливать корабль:\n";
-		cout << "\t\tВведите X: ";
-		x_1 = InputInt(1, 10);
-		cout << "\t\tВведите Y: ";
+		cout << "\t\tВведите горизонталь: ";
+		x_1 = InputLetter(0, 9);
+		cout << "\t\tВведите вертикаль: ";
 		y_1 = InputInt(1, 10);
-		x_1--; y_1--;
+		y_1--;
 		cout << "\t\tВведите направление корабля:\n";
 		cout << "\t\t1 - Вверх; 2 - Вниз; 3 - Влево; 4 - Вправо\n";
 		cout << "\t\tВаш выбор: ";
@@ -158,12 +158,12 @@ void playGame()
 
 		while (true) {
 			cout << "\t\tВведите координаты для выстрела:\n";
-			cout << "\t\tВведите X: ";
-			x = InputInt(1, 10);
-			cout << "\t\tВведите Y: ";
+			cout << "\t\tВведите горизонталь: ";
+			x = InputLetter(0, 9);
+			cout << "\t\tВведите вертикаль: ";
 			y = InputInt(1, 10);
 
-			x = x - 1;
+			//x = x - 1;
 			y = y - 1;
 
 			if (player_status == 1) {
