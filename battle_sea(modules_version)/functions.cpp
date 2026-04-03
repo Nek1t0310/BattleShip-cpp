@@ -84,8 +84,8 @@ int InputInt(int min, int max)
 
 		bool prove = true;
 
-		for (char c : s) {
-			if (!isdigit(c)) {
+		for (int i = 0; i < s.length(); i++) {
+			if (!isdigit(s[i])) {
 				prove = false;
 				break;
 			}
