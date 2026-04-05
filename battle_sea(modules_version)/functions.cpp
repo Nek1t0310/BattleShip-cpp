@@ -188,6 +188,671 @@ void printField(char field[][SIZE_])
 	cout << "\t\t   @—————————————————————@\n" << endl;
 }
 
+void ready_arrangements(char FieldPlayer[SIZE_][SIZE_], int choice_arrangements) {
+	initField(FieldPlayer);
+
+	int x_1, y_1;
+	int choice_vector;
+	int length;
+
+	if (choice_arrangements == 1) {
+		cout << "Базовая: " << endl;
+		// 1
+		x_1 = 0; y_1 = 0;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 2
+		x_1 = 6; y_1 = 0;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 3
+		x_1 = 0; y_1 = 2;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 4
+		x_1 = 0; y_1 = 4;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 5
+		x_1 = 0; y_1 = 7;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 6
+		x_1 = 3; y_1 = 9;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 7
+		x_1 = 9; y_1 = 1;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 8 
+		x_1 = 8; y_1 = 3;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 9
+		x_1 = 5; y_1 = 5;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// 10
+		x_1 = 8; y_1 = 7;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 2) {
+		cout << "Необычная: " << endl;
+		// Линкор (4 палубы) — горизонталь
+		x_1 = 0; y_1 = 0;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь
+		x_1 = 3; y_1 = 3;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — вниз
+		x_1 = 7; y_1 = 6;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 8; y_1 = 2;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 1; y_1 = 5;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь
+		x_1 = 4; y_1 = 8;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 8; y_1 = 0;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 3;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 5; y_1 = 6;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 3) {
+		cout << "Угловая: " << endl;
+		// Расстановка 3: Углы
+
+		// Линкор (4 палубы) — горизонталь вправо
+		x_1 = 0; y_1 = 0;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь вправо
+		x_1 = 6; y_1 = 0;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь вправо
+		x_1 = 0; y_1 = 7;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 9; y_1 = 2;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь вправо
+		x_1 = 5; y_1 = 5;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь вправо
+		x_1 = 4; y_1 = 9;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 2;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 3; y_1 = 5;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 7; y_1 = 7;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 4) {
+		cout << "Крепость: " << endl;
+		// Расстановка 4: Крепость
+		
+		// Линкор (4 палубы) — вниз
+		x_1 = 0; y_1 = 0;
+		choice_vector = 2;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь
+		x_1 = 5; y_1 = 0;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — вниз
+		x_1 = 9; y_1 = 0;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 0; y_1 = 5;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь
+		x_1 = 4; y_1 = 9;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 9; y_1 = 8;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 4;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 8;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 4; y_1 = 6;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 7; y_1 = 7;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 5) {
+		// Расстановка 5: Зигзаг
+		cout << "Зигзаг: \n";
+
+		// Линкор (4 палубы)
+		x_1 = 5; y_1 = 3;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы)
+		x_1 = 0; y_1 = 1;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы)
+		x_1 = 2; y_1 = 3;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 9; y_1 = 0;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 4; y_1 = 6;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 7; y_1 = 6;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 5; y_1 = 0;
+		choice_vector = 3;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 1; y_1 = 8;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 3;
+		choice_vector = 3;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 6; y_1 = 9;
+		choice_vector = 3;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 6) {
+		// Расстановка 6: Асимметрия
+		cout << "Ассиметрия: \n";
+
+		// Линкор (4 палубы)
+		x_1 = 8; y_1 = 0;
+		choice_vector = 2;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы)
+		x_1 = 4; y_1 = 0;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы)
+		x_1 = 9; y_1 = 6;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 5; y_1 = 2;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 4; y_1 = 7;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 1; y_1 = 9;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 2; y_1 = 1;
+		choice_vector = 3;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 1; y_1 = 4;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 2; y_1 = 6;
+		choice_vector = 3;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 7; y_1 = 5;
+		choice_vector = 3;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 7) {
+		cout << "Рассыпная: " << endl;
+		// Расстановка 7: Рассыпной
+
+		// Линкор (4 палубы) — горизонталь вправо
+		x_1 = 0; y_1 = 0;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — вниз
+		x_1 = 0; y_1 = 2;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь вправо
+		x_1 = 5; y_1 = 4;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 6; y_1 = 0;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь вправо
+		x_1 = 2; y_1 = 6;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 9; y_1 = 5;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 3; y_1 = 2;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 8; y_1 = 2;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 5; y_1 = 8;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 8) {
+		cout << "Снайпер: " << endl;
+		// Расстановка 8: Снайпер
+
+		// Линкор (4 палубы) — горизонталь
+		x_1 = 0; y_1 = 9;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — вниз
+		x_1 = 0; y_1 = 0;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь
+		x_1 = 5; y_1 = 0;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь
+		x_1 = 2; y_1 = 4;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 7; y_1 = 4;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь
+		x_1 = 6; y_1 = 7;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 3; y_1 = 2;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 6;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 2;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 9) {
+		//  Расстановка 9: Решётка
+		cout << "Решётка: \n";
+		
+		// Линкор (4 палубы)
+		x_1 = 2; y_1 = 1;
+		choice_vector = 4;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы)
+		x_1 = 2; y_1 = 3;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы)
+		x_1 = 3; y_1 = 7;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 5; y_1 = 4;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 8; y_1 = 3;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы)
+		x_1 = 8; y_1 = 7;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 0; y_1 = 0;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 8; y_1 = 1;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 5;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 1; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+	else if (choice_arrangements == 10) {
+		// Расстановка 10: Хаос
+		cout << "Хаос: \n";
+		
+		// Линкор (4 палубы) — горизонталь
+		x_1 = 7; y_1 = 2;
+		choice_vector = 2;
+		length = 4;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — вниз
+		x_1 = 1; y_1 = 0;
+		choice_vector = 4;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Крейсер (3 палубы) — горизонталь
+		x_1 = 4; y_1 = 6;
+		choice_vector = 2;
+		length = 3;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь
+		x_1 = 0; y_1 = 3;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — вниз
+		x_1 = 1; y_1 = 7;
+		choice_vector = 2;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Эсминец (2 палубы) — горизонталь
+		x_1 = 8; y_1 = 7;
+		choice_vector = 4;
+		length = 2;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 6; y_1 = 0;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 4; y_1 = 2;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 9; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		// Катер (1 палуба)
+		x_1 = 6; y_1 = 9;
+		choice_vector = 1;
+		length = 1;
+		ship(x_1, y_1, FieldPlayer, choice_vector, length);
+
+		printField(FieldPlayer);
+	}
+}
+
 bool ship(int x, int y, char field[][SIZE_], int choise, int length)
 {
 	int Dx = 0;
