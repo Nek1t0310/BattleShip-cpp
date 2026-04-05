@@ -1,5 +1,4 @@
 #pragma once
-
 constexpr int SIZE_ = 10;
 
 void Menu();
@@ -17,6 +16,8 @@ int InputLetter(int min, int max);
 void initField(char field[][SIZE_]);
 
 void printField(char field[][SIZE_]);
+
+void ready_arrangements(char FieldPlayer[SIZE_][SIZE_], int choice_arrangements);
 
 bool ship(int x, int y, char field[][SIZE_], int choise, int length);
 
