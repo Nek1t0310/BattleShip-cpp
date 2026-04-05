@@ -19,6 +19,7 @@ void playGame()
 	int x_1, y_1;
 	int choise_vector;
 	int length;
+	int choice_arrangements;
 	int Battle_Ships[] = { 0, 4, 3, 2, 1 };
 	int WinnerPlayer_1 = 0;
 	int WinnerPlayer_2 = 0;
@@ -31,12 +32,50 @@ void playGame()
 
 	ClearBoard();
 
-	cout << "Время расставлять корабли!\n";
-	cout << "Начинает 1 игрок!\n";
+	cout << "\t\tВремя расставлять корабли!\n";
+	cout << "\t\tНачинает 1 игрок!\n";
 
-	while (check < 10) {
+	bool arrangementOption = false; // флаг для выхода из основного цикла
+	while (arrangementOption == false) { // цикл выбора расстановки из предложенных(1 игрок)
+		string s;
+		cout << "\t\tХотите выбрать расстановку из предложенных 10 вариантов? [y/n] \n\n";
+		cout << "\t\t";
+
+		while (true) {
+			getline(cin, s);
+			if (s != "y" && s != "n") {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				cout << "\t\tВведите либо y(yes), либо n(no): ";
+				continue;
+			}
+			else {
+				break;
+			}
+		}
+
+		if (s == "y") {
+			int flag = 0; // флаг для выхода из цикла выбора расстановки
+			while (flag < 2) {
+				ClearBoard();
+				cout << "Выберите расстановку из предложенных(1 - 10): ";
+				choice_arrangements = InputInt(1, 10);
+				ready_arrangements(FieldPlayer_1, choice_arrangements);
+				cout << "Нажмите 1 что бы продолжить выбор, и 2 что бы выбрать расстановку: ";
+				flag = InputInt(1, 2);
+				ClearBoard();
+			}
+			arrangementOption = true;
+		}
+		else {
+			break;
+		}
+		check = 10; // засчитываем все корабли игроку
+	}
+
+	while (check < 10) { // цикл расстановки первого игрока
 		ClearBoard();
-		cout << "\t\tПервый игрок расставляет:" << endl << endl;
+		cout << "\t\tПервый игрок расставляет:\n\n";
 		printField(FieldPlayer_1);
 		cout << endl;
 		cout << "\tВведите координаты откуда будем устанавливать корабль:\n";
@@ -86,9 +125,47 @@ void playGame()
 	ClearBoard();
 	cout << "\t\tНастало время для второго игрока!\n";
 
-	while (check < 10) {
+	arrangementOption = false;
+	while (arrangementOption == false) { // цикл выбора расстановки из предложенных(1 игрок)
+		string s;
+		cout << "\t\tХотите выбрать расстановку из предложенных 10 вариантов? [y/n] \n\n";
+		cout << "\t\t";
+
+		while (true) {
+			getline(cin, s);
+			if (s != "y" && s != "n") {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				cout << "\t\tВведите либо y(yes), либо n(no): ";
+				continue;
+			}
+			else {
+				break;
+			}
+		}
+
+		if (s == "y") {
+			int flag = 0;
+			while (flag < 2) {
+				ClearBoard();
+				cout << "Выберите расстановку из предложенных(1 - 10): ";
+				choice_arrangements = InputInt(1, 10);
+				ready_arrangements(FieldPlayer_2, choice_arrangements);
+				cout << "Нажмите 1 что бы продолжить выбор, и 2 что бы выбрать расстановку: ";
+				flag = InputInt(1, 2);
+				ClearBoard();
+			}
+			arrangementOption = true;
+		}
+		else {
+			break;
+		}
+		check = 10; // засчитываем все корабли игроку
+	}
+
+	while (check < 10) { // цикл расстановки второго игрока
 		ClearBoard();
-		cout << "\t\tВторой игрок расставляет:" << endl;
+		cout << "\t\tВторой игрок расставляет:\n\n";
 		printField(FieldPlayer_2);
 		cout << endl;
 		cout << "\tВведите координаты откуда будем устанавливать корабль:\n";
