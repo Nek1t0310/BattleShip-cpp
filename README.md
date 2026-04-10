@@ -4,6 +4,7 @@ Simple console battleship game written in C++
 - Ship placement
 - Hit detecting
 - Console interface
+- GAMEMODE WITH BOT(NEW)
 
 # in plans
 Like a calculator, in a future, i planning conversation this game on a python.
